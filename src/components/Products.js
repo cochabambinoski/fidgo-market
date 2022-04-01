@@ -5,6 +5,15 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Product from './Product';
 import products from '../product-data'
+import { makeStyles } from '@mui/styles';
+import { useTheme } from '@mui/material/styles';
+
+const useStyle = makeStyles((theme)=>({
+  root: {
+      flewGrow: 1,
+      padding: useTheme().spacing(2)
+  }
+}))
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -15,6 +24,8 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function Products() {
+  const classes = useStyle();
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
